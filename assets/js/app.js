@@ -74,9 +74,71 @@
   const servicesSection = document.querySelector('[data-pin-services]');
   const serviceCards = Array.from(document.querySelectorAll('[data-service-card]'));
   const serviceNavItems = Array.from(document.querySelectorAll('[data-service-nav]'));
+  const tickerTracks = Array.from(document.querySelectorAll('.ticker__track'));
+  const tickerSources = new WeakMap();
 
   let scrollY = window.scrollY || window.pageYOffset;
   let scrollRequested = false;
+  let tickerResizeTimer = 0;
+
+  // ---------------------------------------------------------------------------
+  // Seamless ticker tracks
+  // ---------------------------------------------------------------------------
+  function appendTickerItems(group, items) {
+    items.forEach((item) => {
+      group.insertAdjacentHTML('beforeend', item);
+    });
+  }
+
+  function getTickerSource(track) {
+    const storedItems = tickerSources.get(track);
+    if (storedItems) return storedItems;
+
+    const items = Array.from(track.children)
+      .filter((child) => child.classList.contains('ticker__item'))
+      .map((item) => item.outerHTML);
+
+    tickerSources.set(track, items);
+    return items;
+  }
+
+  function setupTickerTrack(track) {
+    const items = getTickerSource(track);
+    if (items.length === 0) return;
+
+    track.innerHTML = '';
+
+    const group = document.createElement('div');
+    group.className = 'ticker__group';
+    track.append(group);
+
+    const containerWidth = track.parentElement ? track.parentElement.clientWidth : window.innerWidth;
+    const targetWidth = Math.max(containerWidth, window.innerWidth) * 1.15;
+    let copies = 0;
+
+    do {
+      appendTickerItems(group, items);
+      copies += 1;
+    } while (group.scrollWidth < targetWidth && copies < 16);
+
+    const clone = group.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.append(clone);
+
+    const duration = clamp(group.scrollWidth / 44, 24, 54);
+    track.style.setProperty('--ticker-duration', `${duration.toFixed(1)}s`);
+  }
+
+  function setupTickers() {
+    tickerTracks.forEach(setupTickerTrack);
+  }
+
+  setupTickers();
+
+  window.addEventListener('resize', () => {
+    window.clearTimeout(tickerResizeTimer);
+    tickerResizeTimer = window.setTimeout(setupTickers, 160);
+  }, { passive: true });
 
   // ---------------------------------------------------------------------------
   // Sticky services stage
@@ -190,6 +252,7 @@
     body.classList.toggle('page--menu-open', isOpen);
     menuButton.setAttribute('aria-expanded', String(isOpen));
     menuButton.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    mobileMenu.setAttribute('aria-hidden', String(!isOpen));
   }
 
   if (menuButton && mobileMenu) {
@@ -199,6 +262,12 @@
 
     mobileMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => setMenuState(false));
+    });
+
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target === mobileMenu) {
+        setMenuState(false);
+      }
     });
 
     document.addEventListener('keydown', (event) => {
