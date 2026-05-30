@@ -23,8 +23,6 @@
     </div>
   </div>
 
-  <div class="page-progress" aria-hidden="true"></div>
-
   <header class="header" data-header>
     <a class="brand header__brand" href="#top" aria-label="Полусухая стяжка от Сергея Жукова">
       <span class="brand__mark" aria-hidden="true">
@@ -80,25 +78,25 @@
 
       <div class="container hero__content">
         <div class="hero__topline">
-          <div class="hero__eyebrow reveal">
+          <div class="hero__eyebrow reveal" data-motion="soft" data-delay="1">
 <svg class="hero__eyebrow-flag" viewBox="0 0 20 12" aria-hidden="true"><rect width="20" height="4" fill="#000"/><rect y="4" width="20" height="4" fill="#DD0000"/><rect y="8" width="20" height="4" fill="#FFCE00"/></svg>
             Немецкая технология · Москва и область
           </div>
-          <div class="hero__status reveal" data-delay="1">
+          <div class="hero__status reveal" data-motion="soft" data-delay="2">
             <span class="hero__status-dot" aria-hidden="true"></span>
             договор · смета · гарантия 5 лет
           </div>
         </div>
 
         <div class="hero__main">
-          <p class="hero__kicker reveal" data-delay="1">Полусухая стяжка от Сергея Жукова</p>
+          <p class="hero__kicker reveal" data-motion="wipe" data-delay="1">Полусухая стяжка от Сергея Жукова</p>
           <h1 class="hero__title word-reveal">
             <span class="word-reveal__line"><span class="word-reveal__word">Полусухая</span></span>
             <span class="word-reveal__line"><span class="word-reveal__word">стяжка пола</span></span>
             <span class="word-reveal__line"><span class="word-reveal__word word-reveal__word--accent">под ключ</span></span>
           </h1>
-          <p class="hero__text reveal" data-delay="2">Делаем ровное и прочное основание под плитку, кварцвинил, ламинат и инженерную доску. Подбираем способ работ под объект: квартира, частный дом, офис, склад или торговое помещение.</p>
-          <div class="hero__actions reveal" data-delay="3">
+          <p class="hero__text reveal" data-motion="soft" data-delay="4">Делаем ровное и прочное основание под плитку, кварцвинил, ламинат и инженерную доску. Подбираем способ работ под объект: квартира, частный дом, офис, склад или торговое помещение.</p>
+          <div class="hero__actions reveal" data-motion="soft" data-delay="5">
             <a class="button button--large" href="#lead">
               Получить расчёт
               <svg class="button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
@@ -108,19 +106,19 @@
         </div>
 
         <div class="hero__metrics" aria-label="Ключевые показатели">
-          <article class="metric-card reveal" data-delay="1">
+          <article class="metric-card reveal" data-motion="scale" data-delay="1">
             <div class="metric-card__value"><span data-counter="20">20</span>–<span data-counter="2000">2000</span><span class="metric-card__unit">м²</span></div>
             <div class="metric-card__label">берём объекты от квартиры до склада</div>
           </article>
-          <article class="metric-card reveal" data-delay="2">
+          <article class="metric-card reveal" data-motion="scale" data-delay="2">
             <div class="metric-card__value">до <span data-counter="250">250</span><span class="metric-card__unit">мм</span></div>
             <div class="metric-card__label">подбираем толщину под задачу</div>
           </article>
-          <article class="metric-card reveal" data-delay="3">
+          <article class="metric-card reveal" data-motion="scale" data-delay="3">
             <div class="metric-card__value">до <span data-counter="200">200</span><span class="metric-card__unit">м²</span></div>
             <div class="metric-card__label">за смену при работе насосом</div>
           </article>
-          <article class="metric-card reveal" data-delay="4">
+          <article class="metric-card reveal" data-motion="scale" data-delay="4">
             <div class="metric-card__value"><span data-counter="5">5</span><span class="metric-card__unit">лет</span></div>
             <div class="metric-card__label">гарантия на выполненные работы</div>
           </article>
@@ -148,11 +146,11 @@
       <div class="services__sticky">
         <div class="container services__inner">
           <div class="services__copy">
-            <div class="section__num reveal">№ 01 / Услуги</div>
-            <h2 class="section__title reveal" data-delay="1">Подберём технологию <em>под ваш объект</em></h2>
-            <p class="section__lead reveal" data-delay="2">В смете сразу показываем состав работ, материалы и способ подачи раствора. Для квартир чаще используем полуручную технологию, для домов и больших площадей — насос.</p>
+            <div class="section__num reveal" data-motion="wipe">№ 01 / Услуги</div>
+            <h2 class="section__title reveal" data-motion="wipe" data-delay="1">Подберём технологию <em>под ваш объект</em></h2>
+            <p class="section__lead reveal" data-motion="soft" data-delay="2">В смете сразу показываем состав работ, материалы и способ подачи раствора. Для квартир чаще используем полуручную технологию, для домов и больших площадей — насос.</p>
 
-            <div class="services-nav reveal" data-delay="3" aria-hidden="true">
+            <div class="services-nav reveal" data-motion="soft" data-delay="3" aria-hidden="true">
               <div class="services-nav__track"><span class="services-nav__fill"></span></div>
               <button class="services-nav__item services-nav__item--active" type="button" data-service-nav="0">
                 <span class="services-nav__num">01</span>
@@ -172,7 +170,7 @@
           <div class="services__visual">
             <div class="services__ring" aria-hidden="true"></div>
             <div class="services__stage">
-              <article class="service-card service-card--active" data-service-card data-tilt>
+              <article class="service-card service-card--active reveal" data-motion="scale" data-delay="1" data-service-card data-tilt>
                 <div class="service-card__top">
                   <span class="service-card__num">01</span>
                   <span class="service-card__badge">с материалами</span>
@@ -190,7 +188,7 @@
                 <div class="service-card__bottom">Минимальный объём работ — от 25 000 ₽</div>
               </article>
 
-              <article class="service-card service-card--accent" data-service-card data-tilt>
+              <article class="service-card service-card--accent reveal" data-motion="scale" data-delay="2" data-service-card data-tilt>
                 <div class="service-card__top">
                   <span class="service-card__num">02</span>
                   <span class="service-card__badge">насос + материалы</span>
@@ -208,7 +206,7 @@
                 <div class="service-card__bottom">Оптимально для площадей от 80–100 м²</div>
               </article>
 
-              <article class="service-card service-card--warning" data-service-card data-tilt>
+              <article class="service-card service-card--warning reveal" data-motion="scale" data-delay="3" data-service-card data-tilt>
                 <div class="service-card__top">
                   <span class="service-card__num">03</span>
                   <span class="service-card__badge service-card__badge--warning">материалы отдельно</span>
@@ -233,7 +231,7 @@
 
     <section class="section quality" id="quality">
       <div class="container quality__inner">
-        <div class="quality__panel reveal">
+        <div class="quality__panel reveal" data-motion="rise-left">
           <div class="section__num">№ 02 / Контроль качества</div>
           <h2 class="quality__title">Ровная плоскость без сюрпризов после ремонта</h2>
           <p class="quality__text">Перед началом работ уточняем перепады основания, толщину слоя, доступ к объекту и финишное покрытие. Это помогает заранее подобрать технологию и не менять договорённости в последний момент.</p>
@@ -243,28 +241,28 @@
         <div class="quality__visual">
           <img class="quality__art" src="assets/img/construction-ghost.svg" alt="" aria-hidden="true" data-float-art>
           <div class="quality__cards">
-          <article class="quality-card reveal" data-delay="1">
+          <article class="quality-card reveal" data-motion="scale" data-delay="1">
             <span class="quality-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M7 7h10M8 17h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </span>
             <h3 class="quality-card__title">Понятная смета</h3>
             <p class="quality-card__text">Площадь, толщина, материалы, насос и работы фиксируем до старта.</p>
           </article>
-          <article class="quality-card reveal" data-delay="2">
+          <article class="quality-card reveal" data-motion="scale" data-delay="2">
             <span class="quality-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 17l8-10 8 10M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <h3 class="quality-card__title">Геометрия пола</h3>
             <p class="quality-card__text">Выставляем уровень, работаем по маякам и проверяем плоскость.</p>
           </article>
-          <article class="quality-card reveal" data-delay="3">
+          <article class="quality-card reveal" data-motion="scale" data-delay="3">
             <span class="quality-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M5 11h14M7 7l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </span>
             <h3 class="quality-card__title">Чистый объект</h3>
             <p class="quality-card__text">Укрываем поверхность, убираем рабочую зону и не оставляем мусор.</p>
           </article>
-          <article class="quality-card reveal" data-delay="4">
+          <article class="quality-card reveal" data-motion="scale" data-delay="4">
             <span class="quality-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 4.5-2.8 7.8-7 9-4.2-1.2-7-4.5-7-9V7l7-4z" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
@@ -279,13 +277,13 @@
     <section class="section process" id="process">
       <div class="container">
         <div class="section__head">
-          <div class="section__num reveal">№ 03 / Этапы работ</div>
-          <h2 class="section__title reveal" data-delay="1">От заявки до готового основания</h2>
-          <p class="section__lead reveal" data-delay="2">Вам не нужно разбираться в технологии. Достаточно передать параметры объекта — дальше подготовим расчёт, согласуем условия и выполним стяжку.</p>
+          <div class="section__num reveal" data-motion="wipe">№ 03 / Этапы работ</div>
+          <h2 class="section__title reveal" data-motion="wipe" data-delay="1">От заявки до готового основания</h2>
+          <p class="section__lead reveal" data-motion="soft" data-delay="2">Вам не нужно разбираться в технологии. Достаточно передать параметры объекта — дальше подготовим расчёт, согласуем условия и выполним стяжку.</p>
         </div>
 
         <div class="process-grid">
-          <article class="process-card reveal" data-delay="1">
+          <article class="process-card reveal" data-motion="scale">
             <div class="process-card__num">01</div>
             <div class="process-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v14H5zM8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -293,7 +291,7 @@
             <h3 class="process-card__title">Заявка и вводные</h3>
             <p class="process-card__text">Вы сообщаете тип объекта, площадь, желаемую толщину стяжки и город. Можно приложить фото или план помещения.</p>
           </article>
-          <article class="process-card reveal" data-delay="2">
+          <article class="process-card reveal" data-motion="scale">
             <div class="process-card__num">02</div>
             <div class="process-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 19h16M7 16l3-8 4 5 3-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -301,7 +299,7 @@
             <h3 class="process-card__title">Расчёт и договор</h3>
             <p class="process-card__text">Уточняем доступ, перепады, материалы и сроки. После этого фиксируем стоимость, состав работ и дату выхода бригады.</p>
           </article>
-          <article class="process-card reveal" data-delay="3">
+          <article class="process-card reveal" data-motion="scale">
             <div class="process-card__num">03</div>
             <div class="process-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 15h16M6 15V8h12v7M8 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -309,7 +307,7 @@
             <h3 class="process-card__title">Подготовка объекта</h3>
             <p class="process-card__text">Готовим основание, проклеиваем демпферную ленту, укладываем плёнку и выставляем маяки под нужный уровень.</p>
           </article>
-          <article class="process-card reveal" data-delay="4">
+          <article class="process-card reveal" data-motion="scale">
             <div class="process-card__num">04</div>
             <div class="process-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M3 17c4-4 7-4 10 0s6 4 8 0M6 12h12M9 7h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -323,19 +321,19 @@
 
     <section class="section section--compact stats" id="stats">
       <div class="container stats-grid">
-        <article class="stat-card reveal" data-delay="1">
+        <article class="stat-card reveal" data-motion="scale" data-delay="1">
           <div class="stat-card__value"><span data-counter="5">5</span><span class="stat-card__unit">лет</span></div>
           <div class="stat-card__label">гарантия на выполненные работы</div>
         </article>
-        <article class="stat-card reveal" data-delay="2">
+        <article class="stat-card reveal" data-motion="scale" data-delay="2">
           <div class="stat-card__value"><span data-counter="200">200</span><span class="stat-card__unit">м²</span></div>
           <div class="stat-card__label">подача насосом за один рабочий день</div>
         </article>
-        <article class="stat-card reveal" data-delay="3">
+        <article class="stat-card reveal" data-motion="scale" data-delay="3">
           <div class="stat-card__value">М<span data-counter="500">500</span></div>
           <div class="stat-card__label">цемент используется в составе смеси</div>
         </article>
-        <article class="stat-card reveal" data-delay="4">
+        <article class="stat-card reveal" data-motion="scale" data-delay="4">
           <div class="stat-card__value"><span data-counter="250">250</span><span class="stat-card__unit">мм</span></div>
           <div class="stat-card__label">рассчитываем толщину под задачу пола</div>
         </article>
@@ -353,7 +351,7 @@
 
     <section class="section lead" id="lead">
       <div class="container lead__grid">
-        <aside class="lead-card reveal" data-delay="1">
+        <aside class="lead-card reveal" data-motion="rise-left" data-delay="1">
           <div class="lead-card__label">Расчёт стоимости</div>
           <h2 class="lead-card__title">Подготовим смету под ваш объект</h2>
           <p class="lead-card__text">Уточним площадь, толщину слоя, способ подачи раствора и доступ на объект. После этого назовём предварительную стоимость и ближайшие даты работ.</p>
@@ -380,7 +378,7 @@
           <p class="lead-card__note">Для коммерческих объектов материалы можно закупить отдельно или согласовать поставку перед стартом работ.</p>
         </aside>
 
-        <div class="contact-form reveal" data-delay="2">
+        <div class="contact-form reveal" data-motion="rise-right" data-delay="2">
           <header class="contact-form__head">
             <div class="contact-form__label">Заявка</div>
             <h2 class="contact-form__title">Получить расчёт</h2>
@@ -442,7 +440,7 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
+    <div class="container footer__inner reveal" data-motion="soft">
       <div class="footer__brand">
         <a class="brand brand--footer" href="#top" aria-label="Наверх">
           <span class="brand__mark" aria-hidden="true">
@@ -462,7 +460,7 @@
         <a class="footer__phone" href="tel:+79779948917">+7 (977) 994-89-17</a>
       </div>
     </div>
-    <div class="container footer__bottom">
+    <div class="container footer__bottom reveal" data-motion="soft" data-delay="1">
       <span>© <span data-year>2026</span> Полусухая стяжка от Сергея Жукова</span>
       <a class="footer__policy" href="privacy.html">Политика конфиденциальности</a>
     </div>
