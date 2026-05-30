@@ -11,13 +11,13 @@
   <div class="preloader" role="status" aria-label="Загрузка сайта">
     <div class="preloader__center">
       <div class="preloader__brand" aria-hidden="true">
-        <span>С</span><span>Т</span><span>Я</span><span>Ж</span><span>К</span><span>А</span>
+        <span class="preloader__brand-line">Сергей</span>
+        <span class="preloader__brand-line preloader__brand-line--accent">Жуков</span>
       </div>
-      <div class="preloader__caption">готовим ровное основание</div>
+      <div class="preloader__caption">Готовим готовое покрытие</div>
     </div>
     <div class="preloader__bar">
       <div class="preloader__progress"></div>
-      <div class="preloader__hazard"></div>
       <span class="preloader__label">загрузка</span>
       <span class="preloader__value"><span class="preloader__pct">000</span> / 100</span>
     </div>
@@ -171,10 +171,6 @@
             <div class="services__ring" aria-hidden="true"></div>
             <div class="services__stage">
               <article class="service-card service-card--active reveal" data-motion="scale" data-delay="1" data-service-card data-tilt>
-                <div class="service-card__top">
-                  <span class="service-card__num">01</span>
-                  <span class="service-card__badge">с материалами</span>
-                </div>
                 <div class="service-card__icon" aria-hidden="true">
                   <svg viewBox="0 0 48 48" fill="none"><path d="M9 40V16l15-8 15 8v24" stroke="currentColor" stroke-width="2.4"/><path d="M17 40V24h14v16M15 19h4M23 19h4M31 19h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
                 </div>
@@ -189,10 +185,6 @@
               </article>
 
               <article class="service-card service-card--accent reveal" data-motion="scale" data-delay="2" data-service-card data-tilt>
-                <div class="service-card__top">
-                  <span class="service-card__num">02</span>
-                  <span class="service-card__badge">насос + материалы</span>
-                </div>
                 <div class="service-card__icon" aria-hidden="true">
                   <svg viewBox="0 0 48 48" fill="none"><path d="M7 38h34M11 38V19l13-9 13 9v19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M19 38V26h10v12M34 28h7l-2 10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
@@ -207,10 +199,6 @@
               </article>
 
               <article class="service-card service-card--warning reveal" data-motion="scale" data-delay="3" data-service-card data-tilt>
-                <div class="service-card__top">
-                  <span class="service-card__num">03</span>
-                  <span class="service-card__badge service-card__badge--warning">материалы отдельно</span>
-                </div>
                 <div class="service-card__icon" aria-hidden="true">
                   <svg viewBox="0 0 48 48" fill="none"><path d="M8 40V12h32v28" stroke="currentColor" stroke-width="2.4"/><path d="M14 18h20M14 25h20M14 32h12M33 40V29h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
                 </div>
@@ -229,10 +217,84 @@
       </div>
     </section>
 
+    <section class="quick-cta" id="quick-cta" data-cta-parallax>
+      <div class="quick-cta__media" aria-hidden="true">
+        <img class="quick-cta__image" src="assets/img/cta-bg.jpg" alt="">
+      </div>
+      <div class="quick-cta__shade" aria-hidden="true"></div>
+      <div class="quick-cta__grid" aria-hidden="true"></div>
+      <div class="quick-cta__grain" aria-hidden="true"></div>
+
+      <div class="container quick-cta__inner">
+        <div class="quick-cta__copy">
+          <div class="quick-cta__label reveal" data-motion="wipe">№ 02 / Быстрый расчёт</div>
+          <h2 class="quick-cta__title word-reveal">
+            <span class="word-reveal__line"><span class="word-reveal__word">Оставьте</span></span>
+            <span class="word-reveal__line quick-cta__accent-line"><span class="word-reveal__word word-reveal__word--accent quick-cta__accent-word">заявку —</span></span>
+            <span class="word-reveal__line"><span class="word-reveal__word">мы свяжемся</span></span>
+          </h2>
+          <p class="quick-cta__text reveal" data-motion="soft" data-delay="2">Коротко обсудим объект, подберём технологию устройства стяжки и сориентируем по стоимости. Ответим быстро и по делу.</p>
+        </div>
+
+        <div class="quick-cta__form-card reveal" data-motion="rise-right" data-delay="2">
+          <h3 class="quick-cta__form-title">Отправьте заявку</h3>
+          <p class="quick-cta__form-text">Перезвоним, уточним детали и подготовим предварительный расчёт.</p>
+
+          <form class="quick-form" id="quick-lead-form" data-lead-form novalidate>
+            <label class="field">
+              <span class="field__label">Имя</span>
+              <input class="field__control" name="name" type="text" placeholder="Александр" required>
+            </label>
+            <label class="field">
+              <span class="field__label">Телефон</span>
+              <input class="field__control" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+            </label>
+            <label class="field">
+              <span class="field__label">Тип объекта</span>
+              <span class="field__select">
+                <select class="field__control field__control--select" name="objectType" required>
+                  <option>Квартира</option>
+                  <option>Частный дом</option>
+                  <option>Коммерческое помещение</option>
+                </select>
+              </span>
+            </label>
+            <label class="field">
+              <span class="field__label">Площадь, м²</span>
+              <input class="field__control" name="area" type="number" placeholder="100" min="20" max="2000" required>
+            </label>
+            <label class="field">
+              <span class="field__label">Комментарий</span>
+              <textarea class="field__control field__control--textarea quick-form__comment" name="comment" placeholder="Город, этаж, сроки и удобное время звонка" required></textarea>
+            </label>
+
+            <div class="quick-form__footer">
+              <label class="contact-form__consent">
+                <input class="contact-form__consent-input" name="privacyConsent" type="checkbox" required>
+                <span class="contact-form__consent-box" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.3l2.8 2.8 6.2-6.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="contact-form__consent-text">Я ознакомился и даю согласие на обработку моих персональных данных в соответствии с <a class="contact-form__consent-link" href="privacy.html">политикой конфиденциальности</a></span>
+              </label>
+              <button class="button button--large quick-form__button" type="submit">
+                Получить расчёт
+                <svg class="button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </button>
+            </div>
+          </form>
+
+          <div class="contact-form__success quick-form__success" role="status" aria-live="polite">
+            <span class="contact-form__success-icon" aria-hidden="true">✓</span>
+            Заявка принята. Мы свяжемся с вами для уточнения деталей объекта.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section quality" id="quality">
       <div class="container quality__inner">
         <div class="quality__panel reveal" data-motion="rise-left">
-          <div class="section__num">№ 02 / Контроль качества</div>
+          <div class="section__num">№ 03 / Контроль качества</div>
           <h2 class="quality__title">Ровная плоскость без сюрпризов после ремонта</h2>
           <p class="quality__text">Перед началом работ уточняем перепады основания, толщину слоя, доступ к объекту и финишное покрытие. Это помогает заранее подобрать технологию и не менять договорённости в последний момент.</p>
           <a class="button button--large" href="#lead">Обсудить объект</a>
@@ -243,28 +305,28 @@
           <div class="quality__cards">
           <article class="quality-card reveal" data-motion="scale" data-delay="1">
             <span class="quality-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M7 7h10M8 17h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </span>
             <h3 class="quality-card__title">Понятная смета</h3>
             <p class="quality-card__text">Площадь, толщина, материалы, насос и работы фиксируем до старта.</p>
           </article>
           <article class="quality-card reveal" data-motion="scale" data-delay="2">
             <span class="quality-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 17l8-10 8 10M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M19.875 12c.621 0 1.125 .512 1.125 1.143v5.714c0 .631 -.504 1.143 -1.125 1.143h-15.875a1 1 0 0 1 -1 -1v-5.857c0 -.631 .504 -1.143 1.125 -1.143h15.75z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12v2M6 12v3M12 12v3M18 12v3M15 12v2M3 3v4M3 5h18M21 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </span>
             <h3 class="quality-card__title">Геометрия пола</h3>
             <p class="quality-card__text">Выставляем уровень, работаем по маякам и проверяем плоскость.</p>
           </article>
           <article class="quality-card reveal" data-motion="scale" data-delay="3">
             <span class="quality-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M5 11h14M7 7l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zM16 6a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zM6 12a3 3 0 0 1 3 3a3 3 0 0 1 3 -3a3 3 0 0 1 -3 -3a3 3 0 0 1 -3 3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <h3 class="quality-card__title">Чистый объект</h3>
             <p class="quality-card__text">Укрываем поверхность, убираем рабочую зону и не оставляем мусор.</p>
           </article>
           <article class="quality-card reveal" data-motion="scale" data-delay="4">
             <span class="quality-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 4.5-2.8 7.8-7 9-4.2-1.2-7-4.5-7-9V7l7-4z" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 19l2 2l4 -4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <h3 class="quality-card__title">Гарантия 5 лет</h3>
             <p class="quality-card__text">Работаем по договору и отвечаем за результат после сдачи.</p>
@@ -277,7 +339,7 @@
     <section class="section process" id="process">
       <div class="container">
         <div class="section__head">
-          <div class="section__num reveal" data-motion="wipe">№ 03 / Этапы работ</div>
+          <div class="section__num reveal" data-motion="wipe">№ 04 / Этапы работ</div>
           <h2 class="section__title reveal" data-motion="wipe" data-delay="1">От заявки до готового основания</h2>
           <p class="section__lead reveal" data-motion="soft" data-delay="2">Вам не нужно разбираться в технологии. Достаточно передать параметры объекта — дальше подготовим расчёт, согласуем условия и выполним стяжку.</p>
         </div>
@@ -385,7 +447,7 @@
             <p class="contact-form__text">Заполните несколько полей — перезвоним, уточним детали и подготовим смету.</p>
           </header>
 
-          <form class="contact-form__form" id="lead-form" novalidate>
+          <form class="contact-form__form" id="lead-form" data-lead-form novalidate>
             <div class="contact-form__grid">
               <label class="field">
                 <span class="field__label">Имя</span>
@@ -397,32 +459,40 @@
               </label>
               <label class="field">
                 <span class="field__label">Тип объекта</span>
-                <select class="field__control" name="objectType">
-                  <option>Квартира</option>
-                  <option>Частный дом</option>
-                  <option>Коммерческое помещение</option>
-                </select>
+                <span class="field__select">
+                  <select class="field__control field__control--select" name="objectType" required>
+                    <option>Квартира</option>
+                    <option>Частный дом</option>
+                    <option>Коммерческое помещение</option>
+                  </select>
+                </span>
               </label>
               <label class="field">
                 <span class="field__label">Площадь, м²</span>
-                <input class="field__control" name="area" type="number" placeholder="100" min="20" max="2000">
+                <input class="field__control" name="area" type="number" placeholder="100" min="20" max="2000" required>
               </label>
               <label class="field">
                 <span class="field__label">Толщина, мм</span>
-                <input class="field__control" name="thickness" type="number" placeholder="80" min="1" max="250">
+                <input class="field__control" name="thickness" type="number" placeholder="80" min="1" max="250" required>
               </label>
               <label class="field">
                 <span class="field__label">Город / район</span>
-                <input class="field__control" name="city" type="text" placeholder="Москва, район или адрес">
+                <input class="field__control" name="city" type="text" placeholder="Москва, район или адрес" required>
               </label>
               <label class="field field--wide">
                 <span class="field__label">Комментарий</span>
-                <textarea class="field__control field__control--textarea" name="comment" placeholder="Когда планируете работы, какой этаж, есть ли доступ для насоса"></textarea>
+                <textarea class="field__control field__control--textarea" name="comment" placeholder="Когда планируете работы, какой этаж, есть ли доступ для насоса" required></textarea>
               </label>
             </div>
 
             <div class="contact-form__footer">
-              <p class="contact-form__consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+              <label class="contact-form__consent">
+                <input class="contact-form__consent-input" name="privacyConsent" type="checkbox" required>
+                <span class="contact-form__consent-box" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.3l2.8 2.8 6.2-6.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="contact-form__consent-text">Я ознакомился и даю согласие на обработку моих персональных данных в соответствии с <a class="contact-form__consent-link" href="privacy.html">политикой конфиденциальности</a></span>
+              </label>
               <button class="button button--large contact-form__button" type="submit">
                 Отправить заявку
                 <svg class="button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
@@ -460,7 +530,7 @@
         <a class="footer__phone" href="tel:+79779948917">+7 (977) 994-89-17</a>
       </div>
     </div>
-    <div class="container footer__bottom reveal" data-motion="soft" data-delay="1">
+    <div class="container footer__bottom">
       <span>© <span data-year>2026</span> Полусухая стяжка от Сергея Жукова</span>
       <a class="footer__policy" href="privacy.html">Политика конфиденциальности</a>
     </div>

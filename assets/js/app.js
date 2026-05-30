@@ -21,6 +21,7 @@
   let preloaderValue = 0;
   let preloaderFinished = false;
   let preloaderFallbackTimer = 0;
+  let preloaderStartedAt = 0;
   let siteReadyFired = false;
 
   function fireSiteReady() {
@@ -36,17 +37,23 @@
 
     if (preloader) {
       preloader.classList.add('preloader--done');
-      setTimeout(() => preloader.remove(), hasReducedMotion() ? 0 : 1050);
+      setTimeout(() => preloader.remove(), hasReducedMotion() ? 0 : 380);
     }
     body.classList.remove('page--preloading');
     fireSiteReady();
   }
 
-  function tickPreloader() {
+  function tickPreloader(now) {
     if (preloaderFinished) return;
 
-    const increment = Math.max(2.6, (100 - preloaderValue) * 0.14);
-    preloaderValue = Math.min(100, preloaderValue + increment);
+    if (!preloaderStartedAt) {
+      preloaderStartedAt = now;
+    }
+
+    const duration = hasReducedMotion() ? 0 : 1100;
+    preloaderValue = duration === 0
+      ? 100
+      : clamp(((now - preloaderStartedAt) / duration) * 100, 0, 100);
 
     if (preloaderPct) {
       preloaderPct.textContent = String(Math.floor(preloaderValue)).padStart(3, '0');
@@ -58,12 +65,12 @@
     if (preloaderValue < 100) {
       requestAnimationFrame(tickPreloader);
     } else {
-      setTimeout(finishPreloader, hasReducedMotion() ? 0 : 180);
+      finishPreloader();
     }
   }
 
   if (preloader) {
-    preloaderFallbackTimer = window.setTimeout(finishPreloader, hasReducedMotion() ? 0 : 2400);
+    preloaderFallbackTimer = window.setTimeout(finishPreloader, hasReducedMotion() ? 0 : 1500);
     setTimeout(() => requestAnimationFrame(tickPreloader), hasReducedMotion() ? 0 : 80);
   } else {
     body.classList.remove('page--preloading');
@@ -79,6 +86,7 @@
     speed: Number.parseFloat(element.dataset.parallax || '0.2') || 0.2,
   }));
   const floatArtItems = Array.from(document.querySelectorAll('[data-float-art]'));
+  const ctaParallaxSections = Array.from(document.querySelectorAll('[data-cta-parallax]'));
 
   const servicesSection = document.querySelector('[data-pin-services]');
   const servicesVisual = document.querySelector('.services__visual');
@@ -220,8 +228,8 @@
     }
 
     const viewportHeight = window.innerHeight || root.clientHeight || 1;
-    const transitionSpan = tabletServicesQuery.matches ? 0.82 : 0.9;
-    const bufferSpan = tabletServicesQuery.matches ? 0.12 : 0.16;
+    const transitionSpan = tabletServicesQuery.matches ? 1.08 : 0.9;
+    const bufferSpan = tabletServicesQuery.matches ? 0.16 : 0.16;
     const scrollScreens = 1 + Math.max(0, serviceCards.length - 1) * transitionSpan + bufferSpan;
     const minHeight = `${Math.round(viewportHeight * scrollScreens)}px`;
 
@@ -295,6 +303,13 @@
         const rect = element.getBoundingClientRect();
         const y = clamp((window.innerHeight * 0.5 - rect.top) * 0.08, -76, 96);
         element.style.setProperty('--art-y', `${y.toFixed(1)}px`);
+      });
+
+      ctaParallaxSections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const centerOffset = window.innerHeight * 0.5 - (rect.top + rect.height * 0.5);
+        const y = clamp(centerOffset * 0.08, -42, 42);
+        section.style.setProperty('--quick-cta-bg-y', `${y.toFixed(1)}px`);
       });
     }
 
@@ -489,33 +504,83 @@
   // ---------------------------------------------------------------------------
   // Lead form submit state for static landing
   // ---------------------------------------------------------------------------
-  const leadForm = document.querySelector('#lead-form');
-  const leadSuccess = document.querySelector('.contact-form__success');
+  const leadForms = Array.from(document.querySelectorAll('[data-lead-form]'));
 
-  if (leadForm) {
-    leadForm.addEventListener('submit', (event) => {
+  function initLeadForm(form) {
+    const consentField = form.querySelector('.contact-form__consent');
+    const requiredFields = Array.from(form.querySelectorAll('[required]'));
+    const success = form.parentElement
+      ? form.parentElement.querySelector('.contact-form__success')
+      : null;
+
+    const isFieldInvalid = (field) => {
+      if (field.type === 'checkbox') {
+        return !field.checked;
+      }
+
+      if (!field.value.trim()) {
+        return true;
+      }
+
+      if (field.type === 'tel') {
+        return field.value.replace(/\D/g, '').length < 11;
+      }
+
+      return field.validity ? !field.validity.valid : false;
+    };
+
+    const setFieldInvalid = (field, isInvalid) => {
+      const fieldShell = field.type === 'checkbox'
+        ? consentField
+        : field.closest('.field');
+      const invalidClass = field.type === 'checkbox'
+        ? 'contact-form__consent--invalid'
+        : 'field--invalid';
+
+      if (fieldShell) {
+        fieldShell.classList.toggle(invalidClass, isInvalid);
+      }
+
+      field.setAttribute('aria-invalid', String(isInvalid));
+    };
+
+    requiredFields.forEach((field) => {
+      const eventName = field.type === 'checkbox' || field.tagName === 'SELECT'
+        ? 'change'
+        : 'input';
+
+      field.addEventListener(eventName, () => {
+        setFieldInvalid(field, isFieldInvalid(field));
+      });
+    });
+
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      const requiredFields = Array.from(leadForm.querySelectorAll('[required]'));
-      const invalidField = requiredFields.find((field) => !field.value.trim());
+      requiredFields.forEach((field) => {
+        setFieldInvalid(field, isFieldInvalid(field));
+      });
+
+      const invalidField = requiredFields.find(isFieldInvalid);
       if (invalidField) {
         invalidField.focus();
-        invalidField.reportValidity && invalidField.reportValidity();
         return;
       }
 
-      const submit = leadForm.querySelector('button[type="submit"]');
+      const submit = form.querySelector('button[type="submit"]');
       if (submit) {
         submit.disabled = true;
         submit.textContent = 'Отправляем…';
       }
 
       setTimeout(() => {
-        leadForm.hidden = true;
-        leadSuccess && leadSuccess.classList.add('contact-form__success--visible');
+        form.hidden = true;
+        success && success.classList.add('contact-form__success--visible');
       }, hasReducedMotion() ? 0 : 480);
     });
   }
+
+  leadForms.forEach(initLeadForm);
 
   // ---------------------------------------------------------------------------
   // Dynamic year
