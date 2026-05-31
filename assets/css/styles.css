@@ -1122,8 +1122,37 @@ body:not(.page--preloading) .hero__image {
 
 .services__copy .section__num,
 .services__copy .section__title,
-.services__copy .section__lead {
+.services__copy .section__lead,
+.services__benefits {
   pointer-events: none;
+}
+
+.services__benefits {
+  display: grid;
+  gap: var(--sp-3);
+  max-width: 760px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.services__benefit {
+  position: relative;
+  padding-left: 28px;
+  color: var(--fg-muted);
+  font-size: var(--type-section-lead);
+  line-height: 1.5;
+}
+
+.services__benefit::before {
+  content: "";
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
 }
 
 .services-nav {
@@ -1189,7 +1218,7 @@ body:not(.page--preloading) .hero__image {
 .services__visual {
   position: relative;
   min-width: 0;
-  min-height: min(640px, calc(100svh - var(--header-height) - 70px));
+  min-height: min(660px, calc(100svh - var(--header-height) - 56px));
 }
 
 .services__ring {
@@ -1328,6 +1357,11 @@ body:not(.page--preloading) .hero__image {
   color: var(--fg-muted);
   font-size: var(--type-service-text);
   line-height: 1.64;
+}
+
+.service-card__text strong {
+  color: var(--color-concrete-100);
+  font-weight: 900;
 }
 
 .service-card__list {
@@ -1524,6 +1558,13 @@ body:not(.page--preloading) .hero__image {
   line-height: 1.62;
 }
 
+.quick-cta__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
 .quick-cta__form-card {
   border: 1px solid rgba(255, 244, 227, 0.22);
   border-radius: var(--radius-xs);
@@ -1645,37 +1686,6 @@ body:not(.page--preloading) .hero__image {
 .quality__inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
-  gap: var(--sp-8);
-  align-items: center;
-}
-
-.quality__panel {
-  padding: clamp(28px, 4vw, 56px);
-  border: 1px solid var(--line);
-  background: rgba(13, 15, 15, 0.74);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.quality__title {
-  margin: var(--sp-4) 0 0;
-  color: var(--color-concrete-100);
-  font-family: var(--font-display);
-  font-size: var(--type-quality-title);
-  line-height: 1;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  text-wrap: balance;
-}
-
-.quality__text {
-  margin: var(--sp-5) 0 var(--sp-6);
-  color: var(--fg-muted);
-  font-size: var(--type-quality-text);
-  line-height: 1.65;
 }
 
 .quality__cards {
@@ -1864,7 +1874,7 @@ body:not(.page--preloading) .hero__image {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border: 1px solid var(--line);
   background: rgba(13, 15, 15, 0.52);
 }
@@ -2343,6 +2353,31 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   white-space: nowrap;
 }
 
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-block: 0 var(--sp-5);
+  color: var(--fg-soft);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer__legal span {
+  position: relative;
+}
+
+.footer__legal span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  right: -11px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(244, 195, 62, 0.58);
+}
+
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -2394,7 +2429,6 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   }
 
   .services__inner,
-  .quality__inner,
   .lead__grid {
     grid-template-columns: 1fr;
   }
@@ -2509,7 +2543,7 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   .services__visual {
     justify-self: center;
     width: min(100%, 780px);
-    min-height: clamp(450px, calc(100svh - 400px), 500px);
+    min-height: clamp(360px, calc(100svh - 470px), 420px);
   }
 
   .services__stage {
@@ -2517,7 +2551,9 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   }
 
   .service-card {
+    bottom: auto;
     overflow: visible;
+    min-height: 0;
     padding: clamp(24px, 2.6vw, 34px);
   }
 
@@ -2548,6 +2584,7 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   }
 
   .service-card__bottom {
+    margin-top: var(--sp-5);
     padding-top: var(--sp-4);
     font-size: 15px;
   }
@@ -2730,6 +2767,7 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
 
   .hero__main {
     padding-block: var(--sp-6);
+    text-align: center;
   }
 
   .hero__title {
@@ -2737,8 +2775,10 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   }
 
   .hero__topline {
-    align-items: stretch;
+    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 
   .hero__eyebrow,
@@ -2747,11 +2787,20 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
     max-width: 100%;
   }
 
+  .hero__kicker,
+  .hero__text {
+    margin-inline: auto;
+  }
+
   .hero__actions,
   .contact-form__footer,
   .quick-form__footer {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .hero__secondary-action {
+    display: none;
   }
 
   .hero__actions .button,
@@ -2769,6 +2818,14 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   .footer__inner,
   .footer__bottom {
     grid-template-columns: 1fr;
+  }
+
+  .metric-card--mobile-optional {
+    display: none;
+  }
+
+  .quick-cta__links {
+    justify-content: center;
   }
 
   .quality-card {
@@ -2810,6 +2867,16 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   .footer__bottom {
     display: grid;
     justify-items: start;
+  }
+
+  .footer__legal {
+    display: grid;
+    gap: 6px;
+    padding-bottom: var(--sp-4);
+  }
+
+  .footer__legal span::after {
+    display: none;
   }
 
   .hero__scroll {
@@ -2877,7 +2944,6 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   }
 
   .section__title,
-  .quality__title,
   .lead-card__title,
   .contact-form__title {
     line-height: 1.06;
@@ -2902,7 +2968,6 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
     line-height: 1.04;
   }
 
-  .quality__panel,
   .lead-card,
   .contact-form,
   .quick-cta__form-card {
@@ -2959,7 +3024,6 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
     font-size: 14px;
   }
 
-  .quality__panel,
   .lead-card,
   .contact-form,
   .quick-cta__form-card,
