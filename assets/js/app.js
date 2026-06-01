@@ -509,6 +509,7 @@
   function initLeadForm(form) {
     const consentField = form.querySelector('.contact-form__consent');
     const requiredFields = Array.from(form.querySelectorAll('[required]'));
+    const thanksUrl = form.dataset.thanksUrl || '';
     const success = form.parentElement
       ? form.parentElement.querySelector('.contact-form__success')
       : null;
@@ -574,6 +575,11 @@
       }
 
       setTimeout(() => {
+        if (thanksUrl) {
+          window.location.href = thanksUrl;
+          return;
+        }
+
         form.hidden = true;
         success && success.classList.add('contact-form__success--visible');
       }, hasReducedMotion() ? 0 : 480);

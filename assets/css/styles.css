@@ -575,6 +575,18 @@ svg {
   font-size: 14px;
 }
 
+.button--disabled,
+.button--disabled:hover {
+  border-color: rgba(255, 244, 227, 0.12);
+  background: rgba(255, 244, 227, 0.035);
+  color: var(--fg-soft);
+  cursor: default;
+  opacity: 0.58;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
 .button--large {
   min-height: 58px;
   padding-inline: 30px;
@@ -743,7 +755,7 @@ svg {
 .hero__image {
   width: 100%;
   height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=2400&q=80&auto=format&fit=crop');
+  background-image: url("../img/hero-construction-site.jpg");
   background-position: center;
   background-size: cover;
   filter: saturate(0.72) contrast(1.05) brightness(0.6);
@@ -1125,6 +1137,13 @@ body:not(.page--preloading) .hero__image {
 .services__copy .section__lead,
 .services__benefits {
   pointer-events: none;
+}
+
+@media (min-width: 1281px) {
+  .services__copy .section__title {
+    max-width: none;
+    font-size: clamp(54px, 3.45vw, 62px);
+  }
 }
 
 .services__benefits {
@@ -1994,6 +2013,16 @@ body:not(.page--preloading) .hero__image {
   background: rgba(214, 164, 38, 0.09);
 }
 
+.contact-link--disabled,
+.contact-link--disabled:hover {
+  border-color: rgba(255, 244, 227, 0.1);
+  background: rgba(255, 244, 227, 0.025);
+  cursor: default;
+  opacity: 0.62;
+  pointer-events: none;
+  transform: none;
+}
+
 .contact-link__icon {
   display: grid;
   place-items: center;
@@ -2171,7 +2200,7 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
 }
 
 .field--invalid .field__label {
-  color: var(--color-rust);
+  color: var(--color-oxide-soft);
 }
 
 .field--invalid .field__control,
@@ -2185,7 +2214,7 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
 }
 
 .field--invalid .field__select::after {
-  color: var(--color-rust);
+  color: var(--color-oxide-soft);
 }
 
 .field__control--textarea {
@@ -2263,7 +2292,7 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
 }
 
 .contact-form__consent--invalid .contact-form__consent-box {
-  border-color: var(--color-rust);
+  border-color: var(--color-oxide);
   box-shadow: 0 0 0 4px rgba(185, 74, 50, 0.16);
 }
 
@@ -2302,6 +2331,82 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   border-radius: 50%;
   background: var(--color-success);
   color: var(--color-black);
+}
+
+/* ============================================================
+   Thank you pages
+   ============================================================ */
+
+.thanks {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  padding-block: var(--sp-8);
+  overflow: hidden;
+}
+
+.thanks::before,
+.thanks::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.thanks::before {
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(214, 164, 38, 0.16), transparent 28vw),
+    radial-gradient(circle at 82% 64%, rgba(185, 74, 50, 0.12), transparent 24vw);
+}
+
+.thanks::after {
+  inset: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(255, 244, 227, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 244, 227, 0.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, transparent, #000 16%, #000 82%, transparent);
+}
+
+.thanks__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  max-width: 840px;
+  min-height: calc(100svh - var(--sp-8) * 2);
+  text-align: center;
+}
+
+.thanks__title {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--color-concrete-100);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.4vw, 72px);
+  line-height: 1.04;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.thanks__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: center;
+  margin-top: var(--sp-6);
+}
+
+@media (max-width: 768px) {
+  .thanks {
+    padding-block: var(--sp-7) var(--sp-9);
+  }
+
+  .thanks__inner {
+    min-height: calc(100svh - var(--sp-7) - var(--sp-9));
+  }
 }
 
 /* ============================================================

@@ -10,6 +10,12 @@
     .privacy {
       padding-block: calc(var(--header-height) + var(--sp-8)) var(--sp-10);
     }
+    .privacy-page .header {
+      background: rgba(13, 15, 15, 0.96);
+      border-bottom-color: var(--line);
+      backdrop-filter: blur(18px) saturate(1.2);
+      -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    }
     .privacy__inner {
       max-width: 800px;
       margin: 0 auto;
@@ -17,8 +23,8 @@
     .privacy__title {
       margin: 0 0 var(--sp-6);
       font-family: var(--font-display);
-      font-size: clamp(28px, 5vw, 48px);
-      line-height: 0.98;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.04;
       text-transform: uppercase;
       color: var(--color-concrete-100);
     }
@@ -60,20 +66,33 @@
     .privacy__back:hover {
       opacity: 0.7;
     }
+    @media (max-width: 768px) {
+      .privacy-page .header {
+        position: relative;
+      }
+      .privacy {
+        padding-block: var(--sp-7) var(--sp-9);
+      }
+      .privacy__title {
+        font-size: 30px;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="privacy-page">
   <header class="header">
-    <a class="brand header__brand" href="/" aria-label="Полусухая стяжка от Сергея Жукова">
-      <span class="brand__mark">СЖ</span>
+    <a class="brand header__brand" href="index.html" aria-label="Полусухая стяжка от Сергея Жукова">
+      <span class="brand__mark" aria-hidden="true">
+        <img class="brand__photo" src="assets/img/sergey-zhukov-avatar.jpg" alt="">
+      </span>
       <span class="brand__text">Сергей Жуков</span>
     </a>
 
     <nav class="menu header__menu" aria-label="Основная навигация">
-      <a class="menu__link" href="/#services">Услуги</a>
-      <a class="menu__link" href="/#quality">Качество</a>
-      <a class="menu__link" href="/#process">Этапы</a>
-      <a class="menu__link" href="/#lead">Заявка</a>
+      <a class="menu__link" href="index.html#services">Услуги</a>
+      <a class="menu__link" href="index.html#quality">Качество</a>
+      <a class="menu__link" href="index.html#process">Этапы</a>
+      <a class="menu__link" href="index.html#lead">Заявка</a>
     </nav>
 
     <div class="header__actions">
@@ -81,14 +100,13 @@
         <svg class="header__phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         +7 (977) 994-89-17
       </a>
-      <a class="button button--outline button--small header__button" href="/#lead">Получить расчёт</a>
     </div>
   </header>
 
   <main>
     <section class="privacy">
       <div class="container privacy__inner">
-        <a class="privacy__back" href="/">← На главную</a>
+        <a class="privacy__back" href="index.html">← На главную</a>
         <h1 class="privacy__title">Политика конфиденциальности</h1>
         <div class="privacy__content">
           <p>Настоящая Политика конфиденциальности (далее — Политика) определяет порядок обработки и защиты персональных данных пользователей сайта polusuhaya-styazhka.ru (далее — Сайт).</p>
@@ -154,17 +172,19 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a class="brand brand--footer" href="/" aria-label="Наверх">
-          <span class="brand__mark">СЖ</span>
+        <a class="brand brand--footer" href="index.html" aria-label="На главную">
+          <span class="brand__mark" aria-hidden="true">
+            <img class="brand__photo" src="assets/img/sergey-zhukov-avatar.jpg" alt="">
+          </span>
           <span class="brand__text">Сергей Жуков</span>
         </a>
         <p class="footer__text">Полусухая стяжка пола для квартир, домов и коммерческих объектов.</p>
       </div>
       <nav class="footer__links" aria-label="Нижняя навигация">
-        <a class="footer__link" href="/#services">Услуги</a>
-        <a class="footer__link" href="/#quality">Качество</a>
-        <a class="footer__link" href="/#process">Этапы</a>
-        <a class="footer__link" href="/#lead">Заявка</a>
+        <a class="footer__link" href="index.html#services">Услуги</a>
+        <a class="footer__link" href="index.html#quality">Качество</a>
+        <a class="footer__link" href="index.html#process">Этапы</a>
+        <a class="footer__link" href="index.html#lead">Заявка</a>
       </nav>
       <div class="footer__contacts">
         <a class="footer__phone" href="tel:+79779948917">+7 (977) 994-89-17</a>
