@@ -597,6 +597,14 @@ svg {
   height: 18px;
 }
 
+.button__icon--brand {
+  border-radius: 50%;
+}
+
+.quick-cta__links .button:nth-child(3) .button__icon {
+  color: #0077ff;
+}
+
 .burger {
   display: none;
   position: relative;
@@ -2036,6 +2044,11 @@ body:not(.page--preloading) .hero__image {
 .contact-link__icon svg {
   width: 26px;
   height: 26px;
+}
+
+.lead-card__contacts .contact-link:nth-child(4) .contact-link__icon {
+  background: rgba(0, 119, 255, 0.14);
+  color: #0077ff;
 }
 
 .contact-link__label {
