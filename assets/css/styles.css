@@ -2047,7 +2047,6 @@ body:not(.page--preloading) .hero__image {
 }
 
 .lead-card__contacts .contact-link:nth-child(4) .contact-link__icon {
-  background: rgba(0, 119, 255, 0.14);
   color: #0077ff;
 }
 
