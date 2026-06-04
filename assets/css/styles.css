@@ -583,6 +583,16 @@ svg {
   border-radius: 9px;
 }
 
+.footer__contacts .contact-icons {
+  gap: 8px;
+}
+
+.footer__contacts .contact-icons__link {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+}
+
 .button {
   position: relative;
   isolation: isolate;
@@ -667,7 +677,7 @@ svg {
   border-radius: 50%;
 }
 
-.quick-cta__links .button:nth-child(3) .button__icon {
+.quick-cta__links .button:nth-child(4) .button__icon {
   color: #0077ff;
 }
 
@@ -943,7 +953,7 @@ body:not(.page--preloading) .hero__image {
   margin: 0 0 var(--sp-4);
   color: var(--color-gold-strong);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1616,6 +1626,9 @@ body:not(.page--preloading) .hero__image {
 }
 
 .quick-cta__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 760px;
 }
 
@@ -1694,8 +1707,23 @@ body:not(.page--preloading) .hero__image {
 .quick-cta__links {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: var(--sp-3);
+  width: 100%;
+  max-width: 640px;
   margin-top: var(--sp-5);
+}
+
+.quick-cta__links .button {
+  flex: 0 1 calc((100% - var(--sp-3)) / 2);
+  justify-content: center;
+  text-align: center;
+}
+
+.quick-cta__links .button__icon--brand {
+  width: 28px;
+  height: 28px;
 }
 
 .quick-cta__form-card {
@@ -3059,6 +3087,14 @@ input.field__control[type="number"]::-webkit-inner-spin-button {
   .quick-form__button,
   .mobile-menu__button {
     width: 100%;
+  }
+
+  .quick-cta__links {
+    max-width: 420px;
+  }
+
+  .quick-cta__links .button {
+    flex-basis: 100%;
   }
 
   .hero__metrics,
